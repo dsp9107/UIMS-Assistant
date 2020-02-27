@@ -49,3 +49,18 @@ function generate({ keys, data }) {
     alert("Copied To Clipboard");
     return actual.attendance;
 }
+
+function generate({ keys, data }) {
+    actual = { attendance: [] };
+    for (i = 0; i < data.length; i++) {
+        temp = {};
+        for (j = 0; j < data.length; j++) {
+            temp[keys[j]] = data[i][j];
+        }
+        actual.attendance.push(temp);
+    }
+    textToClipboard(JSON.stringify(actual));
+    alert("Copied To Clipboard");
+    console.log(JSON.stringify(actual));
+    return actual.attendance;
+}
