@@ -34,7 +34,7 @@ This Chrome Extension Assists Users In Extracting And Utilizing Data Stored on U
             "Eligible Attended": "xx",
             "Eligible Percentage": "xx.xx"
         },
-    ...
-  ]
+        ...
+    ]
 }
 ```
