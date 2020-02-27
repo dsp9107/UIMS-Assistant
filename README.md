@@ -34,7 +34,7 @@ This Chrome Extension Assists Developers Extract Data From UIMS And Utilize The 
             "Eligible Attended": "xx",
             "Eligible Percentage": "xx.xx"
         },
-    ...
-  ]
+        ...
+    ]
 }
 ```
