@@ -1,0 +1,29 @@
+{
+    "name": "UIMS Assistant",
+    "version": "1.0",
+    "description": "Assists Users In Daily Use of UIMS",
+    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/heart_16.png",
+            "24": "images/heart_24.png",
+            "32": "images/heart_32.png",
+            "64": "images/heart_64.png",
+            "128": "images/heart_128.png"
+        }
+    },
+    "options_page": "options.html",
+    "icons": {
+        "16": "images/heart_16.png",
+        "24": "images/heart_24.png",
+        "32": "images/heart_32.png",
+        "64": "images/heart_64.png",
+        "128": "images/heart_128.png"
+    },
+    "manifest_version": 2
+}
