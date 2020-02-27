@@ -1,7 +1,7 @@
 {
-    "name": "UIMS Assistant",
+    "name": "UIMS Data Extractor",
     "version": "1.0",
-    "description": "Assists Users In Daily Use of UIMS",
+    "description": "Assists Developers Extract Data From UIMS",
     "permissions": ["activeTab", "declarativeContent", "storage"],
     "background": {
         "scripts": ["background.js"],
@@ -10,20 +10,24 @@
     "page_action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "images/heart_16.png",
-            "24": "images/heart_24.png",
-            "32": "images/heart_32.png",
-            "64": "images/heart_64.png",
-            "128": "images/heart_128.png"
+            "16": "images/16w/Artboard 1.png",
+            "24": "images/24w/Artboard 1.png",
+            "32": "images/32w/Artboard 1.png",
+            "64": "images/64w/Artboard 1.png",
+            "128": "images/128w/Artboard 1.png",
+            "256": "images/256w/Artboard 1.png",
+            "512": "images/512w/Artboard 1.png"
         }
     },
     "options_page": "options.html",
     "icons": {
-        "16": "images/heart_16.png",
-        "24": "images/heart_24.png",
-        "32": "images/heart_32.png",
-        "64": "images/heart_64.png",
-        "128": "images/heart_128.png"
+        "16": "images/16w/Artboard 1.png",
+        "24": "images/24w/Artboard 1.png",
+        "32": "images/32w/Artboard 1.png",
+        "64": "images/64w/Artboard 1.png",
+        "128": "images/128w/Artboard 1.png",
+        "256": "images/256w/Artboard 1.png",
+        "512": "images/512w/Artboard 1.png"
     },
     "manifest_version": 2
 }
