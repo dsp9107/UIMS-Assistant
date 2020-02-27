@@ -1,6 +1,6 @@
-# UIMS Assistant Chrome Extension
+# UIMS Data Extractor - Chrome Extension
 
-This Chrome Extension Assists Users In Extracting And Utilizing Data Stored on UIMS
+This Chrome Extension Assists Developers Extract Data From UIMS And Utilize The Same In Any Constructive Way They Can Imagine.
 
 ### Installation
 
