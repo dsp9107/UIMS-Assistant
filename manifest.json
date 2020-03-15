@@ -2,7 +2,7 @@
     "name": "UIMS Data Extractor",
     "version": "1.0",
     "description": "Assists Developers Extract Data From UIMS",
-    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "permissions": ["contextMenus", "activeTab", "declarativeContent"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
