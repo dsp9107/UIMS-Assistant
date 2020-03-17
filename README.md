@@ -1,6 +1,6 @@
-# UIMS Data Extractor - Chrome Extension
+# UIMS ![Extension Logo](https://github.com/dsp9107/UIMS-Data-Extractor-Chrome-Extension/blob/master/images/32w/Artboard%201.png)ssistant
 
-This Chrome Extension Assists Developers Extract Data From UIMS And Utilize The Same In Any Constructive Way They Can Imagine.
+This Chrome Extension Assists Users Maintain Their Attendance While Having Fun As Well And Developers Extract Data From [UIMS](https://uims.cuchd.in/uims) And Utilize The Same In Any Constructive Way They Can Imagine.
 
 ### Installation
 
