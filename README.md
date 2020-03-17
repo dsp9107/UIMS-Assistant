@@ -2,6 +2,8 @@
 
 This Chrome Extension Assists Users Maintain Their Attendance While Having Fun As Well And Developers Extract Data From [UIMS](https://uims.cuchd.in/uims) And Utilize The Same In Any Constructive Way They Can Imagine.
 
+[Learn more >](https://github.com/dsp9107/UIMS-Data-Extractor-Chrome-Extension/wiki)
+
 ### Installation
 
 -   Clone or download this repository and extract the zip
