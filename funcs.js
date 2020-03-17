@@ -1,40 +1,3 @@
-var flag = 0;
-
-function textToClipboard(text) {
-    var dummy = document.createElement("textarea");
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-}
-
-function copy() {
-    let keys = [],
-        data = [];
-    $("tr")
-        .find("th")
-        .each(function() {
-            if ($(this).text() != "View Attendance") {
-                keys.push($(this).text());
-            }
-        });
-    $("tr").each(function() {
-        temp = [];
-        $(this)
-            .find("td")
-            .each(function() {
-                if ($(this).text() != "") {
-                    temp.push($(this).text());
-                }
-            });
-        if (temp.length > 0) {
-            data.push(temp);
-        }
-    });
-    return { keys, data };
-}
-
 function presents(a, d, p, t) {
     let s = 0;
     while (p < t) {
@@ -62,10 +25,10 @@ function absents(a, d, p, t) {
 }
 
 function createTable(data) {
-    if (flag == 1) {
+    if ($("#frozen").length) {
         return;
     }
-    flag = 1;
+
     //Lock Scroll
     $("body").css({ overflow: "hidden" });
 
@@ -77,6 +40,7 @@ function createTable(data) {
 
     var overlay = document.createElement("div");
     overlay.className = "my-overlay";
+    overlay.id = "frozen";
 
     var divMain = document.createElement("div");
     divMain.className = "my-main";
@@ -100,13 +64,8 @@ function createTable(data) {
     closeOverlay.className = "my-cta";
     closeOverlay.innerText = "X";
     closeOverlay.onclick = () => {
-        flag = 0;
         document.body.removeChild(overlay);
-
-        //Unlock Scroll
         $("body").css({ overflow: "visible" });
-
-        //Remove Style From Head
         document.head.removeChild(stylo);
     };
 
@@ -330,7 +289,52 @@ function createTable(data) {
     document.head.appendChild(stylo);
 }
 
-function generate({ keys, data }) {
+function textToClipboard(text) {
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}
+
+function extractData() {
+    let keys = [],
+        data = [];
+    $("tr")
+        .find("th")
+        .each(function() {
+            if ($(this).text() != "View Attendance") {
+                keys.push($(this).text());
+            }
+        });
+    $("tr").each(function() {
+        temp = [];
+        $(this)
+            .find("td")
+            .each(function() {
+                if ($(this).text() != "") {
+                    temp.push($(this).text());
+                }
+            });
+        if (temp.length > 0) {
+            data.push(temp);
+        }
+    });
+    return { keys, data };
+}
+
+function generateInsights({ keys, data }) {
+    let internalData = [];
+    internalData.push(keys);
+    data.forEach(d => {
+        internalData.push(d);
+    });
+    createTable(internalData);
+    return internalData;
+}
+
+function developerZone({ keys, data }) {
     actual = { attendance: [] };
     for (i = 0; i < data.length; i++) {
         temp = {};
@@ -339,14 +343,7 @@ function generate({ keys, data }) {
         }
         actual.attendance.push(temp);
     }
-    textToClipboard(JSON.stringify(actual));
-    // alert("Copied To Clipboard");
-    let internalData = [];
-    internalData.push(keys);
-    data.forEach(d => {
-        internalData.push(d);
-    });
-    createTable(internalData);
-    // console.log(JSON.stringify(actual));
+    textToClipboard(JSON.stringify(actual.attendance));
+    alert("Copied Attendance Data to your clipboard in JSON format\n- @dsp9107");
     return actual.attendance;
 }

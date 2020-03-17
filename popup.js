@@ -1,14 +1,9 @@
 "use strict";
 
-let changeColor = document.getElementById("changeColor");
+let getInsights = document.getElementById("getInsights");
 let extractData = document.getElementById("extractData");
 
-// chrome.storage.sync.get("color", function(data) {
-//     changeColor.style.backgroundColor = data.color;
-//     changeColor.setAttribute("value", data.color);
-// });
-
-changeColor.onclick = function(element) {
+getInsights.onclick = function(element) {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         chrome.tabs.executeScript(
             tabs[0].id,
@@ -19,7 +14,7 @@ changeColor.onclick = function(element) {
                     { file: "funcs.js" },
                     function() {
                         chrome.tabs.executeScript(tabs[0].id, {
-                            code: "generate(copy());"
+                            code: "generateInsights(extractData());"
                         });
                     }
                 );
@@ -39,7 +34,7 @@ extractData.onclick = function(element) {
                     { file: "funcs.js" },
                     function() {
                         chrome.tabs.executeScript(tabs[0].id, {
-                            code: "generate(copy());"
+                            code: "developerZone(extractData());"
                         });
                     }
                 );
@@ -47,7 +42,3 @@ extractData.onclick = function(element) {
         );
     });
 };
-
-chrome.contextMenus.onClicked.addListener(function(menuInfo, tabInfo) {
-    console.log("KNOCK");
-});

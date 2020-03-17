@@ -1,8 +1,13 @@
 {
-    "name": "UIMS Data Extractor",
+    "name": "UIMS Assistant",
     "version": "1.0",
-    "description": "Assists Developers Extract Data From UIMS",
-    "permissions": ["contextMenus", "activeTab", "declarativeContent"],
+    "description": "Assists users maintain and track their attendance goals",
+    "permissions": [
+        "contextMenus",
+        "activeTab",
+        "declarativeContent",
+        "storage"
+    ],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
