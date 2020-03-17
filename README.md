@@ -11,30 +11,32 @@ This Chrome Extension Assists Developers Extract Data From UIMS And Utilize The 
 -   Browse and select the root folder where you extracted the zipped repo
 -   It will install the extension and it should appear in the chrome extensions bar
 
-### Usage
+### Usage - For Normal Users
 
 -   Log in
 -   Head To Attendance Section
--   Click on extension icon :heart:
--   Click on `Extract Attendance Data`
--   A JSON Object will be copied to your clipboard in the following format :
+-   Click on extension icon ![Extension Logo](/images/24w/Artboard%201.png)
+-   Click on `Insights`
+
+### Usage - For Developers
+
+-   Click on `Extract`
+-   Attendance Data will be copied to your clipboard in the following format :
 
 ```javascript
-{
-    attendance: [
-        {
-            "Course Code": "XXX-xxx",
-            "Title": "XXXXXXXXXX",
-            "Total Delv.": "xx",
-            "Total Attd.": "xx",
-            "Duty Leave N P": "xx",
-            "Duty Leave Others": "xx",
-            "Medical Leave": "xx",
-            "Eligible Delivered": "xx",
-            "Eligible Attended": "xx",
-            "Eligible Percentage": "xx.xx"
-        },
-        ...
-    ]
-}
+[
+    {
+        "Course Code": "XXX-xxx",
+        "Title": "XXXXXXXXXX",
+        "Total Delv.": "xx",
+        "Total Attd.": "xx",
+        "Duty Leave N P": "xx",
+        "Duty Leave Others": "xx",
+        "Medical Leave": "xx",
+        "Eligible Delivered": "xx",
+        "Eligible Attended": "xx",
+        "Eligible Percentage": "xx.xx"
+    },
+    ...
+]
 ```
