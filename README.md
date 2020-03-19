@@ -6,12 +6,8 @@ This Chrome Extension Assists Users Maintain Their Attendance While Having Fun A
 
 ### Installation
 
--   Clone or download this repository and extract the zip
--   Head over to `chrome://extensions`
--   Turn on `Developer Mode`
--   Click on `Load Unpacked`
--   Browse and select the root folder where you extracted the zipped repo
--   It will install the extension and it should appear in the chrome extensions bar
+-   Head to [Chrome Webstore](https://chrome.google.com/webstore/detail/uims-assistant/fpegbdpjlgmlbjphonekhfomopigahfb)
+-   Install in a click
 
 ### Usage - For Normal Users
 
