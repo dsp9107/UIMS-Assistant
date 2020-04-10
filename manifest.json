@@ -1,7 +1,7 @@
 {
     "name": "UIMS Assistant",
     "version": "1.0",
-    "description": "Assists users maintain and track their attendance goals",
+    "description": "To assist students with formalities and developers with curiosities.",
     "permissions": [
         "contextMenus",
         "activeTab",
