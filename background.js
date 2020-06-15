@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "knockKnock",
         title: "My Attendance Goals",
-        contexts: ["page"]
+        contexts: ["page"],
     });
 
     chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
@@ -16,12 +16,22 @@ chrome.runtime.onInstalled.addListener(() => {
                     new chrome.declarativeContent.PageStateMatcher({
                         pageUrl: {
                             urlMatches:
-                                "uims.cuchd.in/UIMS/frmStudentCourseWiseAttendanceSummary.aspx"
-                        }
-                    })
+                                "uims.cuchd.in/UIMS/frmStudentCourseWiseAttendanceSummary.aspx",
+                        },
+                    }),
+                    new chrome.declarativeContent.PageStateMatcher({
+                        pageUrl: {
+                            urlMatches: "localhost:5000",
+                        },
+                    }),
+                    new chrome.declarativeContent.PageStateMatcher({
+                        pageUrl: {
+                            urlMatches: "uims-assistant.web.app",
+                        },
+                    }),
                 ],
-                actions: [new chrome.declarativeContent.ShowPageAction()]
-            }
+                actions: [new chrome.declarativeContent.ShowPageAction()],
+            },
         ]);
     });
 });

@@ -303,16 +303,16 @@ function extractData() {
         data = [];
     $("tr")
         .find("th")
-        .each(function() {
+        .each(function () {
             if ($(this).text() != "View Attendance") {
                 keys.push($(this).text());
             }
         });
-    $("tr").each(function() {
+    $("tr").each(function () {
         temp = [];
         $(this)
             .find("td")
-            .each(function() {
+            .each(function () {
                 if ($(this).text() != "") {
                     temp.push($(this).text());
                 }
@@ -321,13 +321,23 @@ function extractData() {
             data.push(temp);
         }
     });
+    let internalData = [];
+    internalData.push(keys);
+    data.forEach((d) => {
+        internalData.push(d);
+    });
+
+    chrome.storage.sync.set(
+        { attendanceData: { data: internalData, desc: "data", version: 1 } },
+        console.log("stored")
+    );
     return { keys, data };
 }
 
 function generateInsights({ keys, data }) {
     let internalData = [];
     internalData.push(keys);
-    data.forEach(d => {
+    data.forEach((d) => {
         internalData.push(d);
     });
     createTable(internalData);
@@ -344,6 +354,5 @@ function developerZone({ keys, data }) {
         actual.attendance.push(temp);
     }
     textToClipboard(JSON.stringify(actual.attendance));
-    alert("Copied Attendance Data to your clipboard in JSON format\n- @dsp9107");
     return actual.attendance;
 }
