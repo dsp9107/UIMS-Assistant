@@ -1,7 +1,7 @@
 {
     "name": "UIMS Assistant",
-    "version": "1.0",
-    "description": "To assist students with formalities and developers with curiosities.",
+    "version": "1.0.1",
+    "description": "To assist students keep up with their attendance goals.",
     "permissions": [
         "contextMenus",
         "activeTab",
@@ -25,7 +25,6 @@
             "512": "images/512w/Artboard 1.png"
         }
     },
-    "options_page": "options.html",
     "icons": {
         "16": "images/16w/Artboard 1.png",
         "24": "images/24w/Artboard 1.png",

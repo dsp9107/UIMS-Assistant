@@ -289,49 +289,60 @@ function createTable(data) {
     document.head.appendChild(stylo);
 }
 
-function textToClipboard(text) {
-    var dummy = document.createElement("textarea");
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-}
+// function textToClipboard(text) {
+//     var dummy = document.createElement("textarea");
+//     document.body.appendChild(dummy);
+//     dummy.value = text;
+//     dummy.select();
+//     document.execCommand("copy");
+//     document.body.removeChild(dummy);
+// }
 
 function extractData() {
-    let keys = [],
-        data = [];
-    $("tr")
-        .find("th")
-        .each(function () {
-            if ($(this).text() != "View Attendance") {
-                keys.push($(this).text());
-            }
-        });
-    $("tr").each(function () {
-        temp = [];
-        $(this)
-            .find("td")
+    console.log({ location: window.location.host });
+    if (window.location.host.match(/.*\.?cuchd\.in.*/) != null) {
+        let keys = [],
+            data = [];
+        $("tr")
+            .find("th")
             .each(function () {
-                if ($(this).text() != "") {
-                    temp.push($(this).text());
+                if ($(this).text() != "View Attendance") {
+                    keys.push($(this).text());
                 }
             });
-        if (temp.length > 0) {
-            data.push(temp);
-        }
-    });
-    let internalData = [];
-    internalData.push(keys);
-    data.forEach((d) => {
-        internalData.push(d);
-    });
+        $("tr").each(function () {
+            temp = [];
+            $(this)
+                .find("td")
+                .each(function () {
+                    if ($(this).text() != "") {
+                        temp.push($(this).text());
+                    }
+                });
+            if (temp.length > 0) {
+                data.push(temp);
+            }
+        });
+        let internalData = [];
+        internalData.push(keys);
+        data.forEach((d) => {
+            internalData.push(d);
+        });
 
-    chrome.storage.sync.set(
-        { attendanceData: { data: internalData, desc: "data", version: 1 } },
-        console.log("stored")
-    );
-    return { keys, data };
+        chrome.storage.sync.set(
+            {
+                attendanceData: {
+                    data: internalData,
+                    desc: "data",
+                    version: 1,
+                },
+            },
+            console.log("stored")
+        );
+        return { keys, data };
+    } else {
+        return null;
+    }
 }
 
 function generateInsights({ keys, data }) {
@@ -344,15 +355,19 @@ function generateInsights({ keys, data }) {
     return internalData;
 }
 
-function developerZone({ keys, data }) {
-    actual = { attendance: [] };
-    for (i = 0; i < data.length; i++) {
-        temp = {};
-        for (j = 0; j < data.length; j++) {
-            temp[keys[j]] = data[i][j];
+function developerZone(incoming) {
+    if (incoming.keys && incoming.data) {
+        actual = { attendance: [] };
+        for (i = 0; i < incoming.data.length; i++) {
+            temp = {};
+            for (j = 0; j < incoming.data.length; j++) {
+                temp[incoming.keys[j]] = incoming.data[i][j];
+            }
+            actual.attendance.push(temp);
         }
-        actual.attendance.push(temp);
+        // textToClipboard(JSON.stringify(actual.attendance));
+        return actual.attendance;
+    } else {
+        return null;
     }
-    textToClipboard(JSON.stringify(actual.attendance));
-    return actual.attendance;
 }
