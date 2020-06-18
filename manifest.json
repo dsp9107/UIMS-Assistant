@@ -1,7 +1,7 @@
 {
     "name": "UIMS Assistant",
     "version": "1.0.1",
-    "description": "To assist students keep up with their attendance goals.",
+    "description": "Assists you keeping up with your attendance goals.",
     "permissions": [
         "contextMenus",
         "activeTab",
@@ -16,23 +16,21 @@
     "page_action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "images/16w/Artboard 1.png",
-            "24": "images/24w/Artboard 1.png",
-            "32": "images/32w/Artboard 1.png",
-            "64": "images/64w/Artboard 1.png",
-            "128": "images/128w/Artboard 1.png",
-            "256": "images/256w/Artboard 1.png",
-            "512": "images/512w/Artboard 1.png"
+            "24": "images/w24.png",
+            "32": "images/w32.png",
+            "64": "images/w64.png",
+            "128": "images/w128.png",
+            "256": "images/w256.png",
+            "512": "images/w512.png"
         }
     },
     "icons": {
-        "16": "images/16w/Artboard 1.png",
-        "24": "images/24w/Artboard 1.png",
-        "32": "images/32w/Artboard 1.png",
-        "64": "images/64w/Artboard 1.png",
-        "128": "images/128w/Artboard 1.png",
-        "256": "images/256w/Artboard 1.png",
-        "512": "images/512w/Artboard 1.png"
+        "24": "images/w24.png",
+        "32": "images/w32.png",
+        "64": "images/w64.png",
+        "128": "images/w128.png",
+        "256": "images/w256.png",
+        "512": "images/w512.png"
     },
     "manifest_version": 2
 }
