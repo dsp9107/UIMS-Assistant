@@ -1,6 +1,6 @@
 {
     "name": "UIMS Assistant",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Assists you keeping up with your attendance goals.",
     "permissions": [
         "contextMenus",
@@ -9,12 +9,15 @@
         "storage",
         "tabs"
     ],
+    "externally_connectable": {
+        "matches": ["*://localhost/*", "https://uims-assistant.web.app/*"]
+    },
     "background": {
         "scripts": ["background.js"],
         "persistent": false
     },
     "page_action": {
-        "default_popup": "popup.html",
+        "default_popup": "popup-uims.html",
         "default_icon": {
             "24": "images/w24.png",
             "32": "images/w32.png",

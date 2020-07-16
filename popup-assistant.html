@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link href="/stylo.css" rel="stylesheet" />
+        <style>
+            div.holder.onUIMS > #loadData {
+                display: none;
+            }
+            div.holder.onUIMS > #extractData {
+                display: block;
+            }
+            div.holder.onASSISTANT > #loadData {
+                display: block;
+            }
+            div.holder.onASSISTANT > #extractData {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="holder">
+            <text class="heading">My Attendance Goals</text>
+            <button class="cta" id="loadData">Load</button>
+            <button class="cta" id="deleteData">Delete</button>
+        </div>
+        <script src="popup-assistant.js"></script>
+    </body>
+</html>

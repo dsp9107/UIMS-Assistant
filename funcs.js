@@ -210,25 +210,26 @@ function createTable(data) {
     let table = document.createElement("table");
     let columnCount = data[0].length;
     let row = table.insertRow(-1);
+    var headerCell;
     for (var i = 0; i < columnCount; i++) {
         if ([0, 1, 7, 8, 9].includes(i)) {
-            var headerCell = document.createElement("TH");
+            headerCell = document.createElement("TH");
             headerCell.innerHTML = data[0][i];
             row.appendChild(headerCell);
         }
     }
 
-    var headerCell = document.createElement("TH");
+    headerCell = document.createElement("TH");
     headerCell.innerHTML = "75%";
     row.appendChild(headerCell);
 
-    var headerCell = document.createElement("TH");
+    headerCell = document.createElement("TH");
     headerCell.innerHTML = "90%";
     row.appendChild(headerCell);
 
     const labRegEx = /(lab)/i;
 
-    for (var i = 1; i < data.length; i++) {
+    for (i = 1; i < data.length; i++) {
         row = table.insertRow(-1);
         if (data[i][1].match(labRegEx)) {
             row.className = "lab";
@@ -242,25 +243,26 @@ function createTable(data) {
         let a = parseInt(data[i][8]);
         let d = parseInt(data[i][7]);
         let p = parseInt(data[i][9]);
+        var cell1, cell2;
         if (p >= 90) {
-            var cell1 = row.insertCell(-1);
+            cell1 = row.insertCell(-1);
             cell1.innerText = "+" + absents(a, d, p, 75);
             cell1.className = "green";
-            var cell2 = row.insertCell(-1);
+            cell2 = row.insertCell(-1);
             cell2.innerText = "+" + absents(a, d, p, 90);
             cell2.className = "green";
         } else if (p >= 75) {
-            var cell1 = row.insertCell(-1);
+            cell1 = row.insertCell(-1);
             cell1.innerText = "+" + absents(a, d, p, 75);
             cell1.className = "green";
-            var cell2 = row.insertCell(-1);
+            cell2 = row.insertCell(-1);
             cell2.innerText = "-" + presents(a, d, p, 90);
             cell2.className = "red";
         } else {
-            var cell1 = row.insertCell(-1);
+            cell1 = row.insertCell(-1);
             cell1.innerText = "-" + presents(a, d, p, 75);
             cell1.className = "red";
-            var cell2 = row.insertCell(-1);
+            cell2 = row.insertCell(-1);
             cell2.innerText = "-" + presents(a, d, p, 90);
             cell2.className = "red";
         }

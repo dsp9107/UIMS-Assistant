@@ -37,7 +37,7 @@ function onClickHandler(info, tab) {
                             }
                         }).then((value) => {
                             if(value)
-                                {window.open("https://uims-assistant.web.app", "_blank");}
+                                {window.open("https://uims-assistant.web.app/demo", "_blank");}
                         });`,
                     });
                 }
@@ -51,7 +51,7 @@ function onClickHandler(info, tab) {
                         code: `swal({
                             title: "You are almost there",
                             text: "Would you like to open the attendance page?",
-                            icon: "success",
+                            icon: "warning",
                             buttons: {
                                 yes: {
                                     text: "YES",
@@ -180,9 +180,55 @@ chrome.runtime.onInstalled.addListener(() => {
                             urlMatches: "uims-assistant.web.app",
                         },
                     }),
+                    new chrome.declarativeContent.PageStateMatcher({
+                        pageUrl: {
+                            urlMatches: "localhost",
+                        },
+                    }),
                 ],
                 actions: [new chrome.declarativeContent.ShowPageAction()],
             },
         ]);
+
+        // chrome.storage.sync.get("attendanceData", function (data) {
+        //     if (data) {
+        //         console.log("data found");
+        //         console.log(data);
+        //         // chrome.browserAction.setPopup({
+        //         //     popup: "popup-assistant.html",
+        //         // });
+        //     } else {
+        //         console.log("no data found");
+        //         // chrome.browserAction.setPopup({ popup: "popup-uims.html" });
+        //     }
+        // });
+    });
+
+    chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+        if (tab.url.match(/.*uims\.cuchd\.in\/UIMS.*Attendance.*/) != null) {
+            chrome.pageAction.setPopup({
+                tabId: tabId,
+                popup: "popup-uims.html",
+            });
+        } else {
+            chrome.pageAction.setPopup({
+                tabId: tabId,
+                popup: "popup-assistant.html",
+            });
+        }
+    });
+});
+
+chrome.runtime.onMessageExternal.addListener(function (
+    request,
+    sender,
+    sendResponse
+) {
+    chrome.storage.sync.get(["attendanceData"], function (result) {
+        if (result.attendanceData) {
+            sendResponse(result.attendanceData);
+        } else {
+            sendResponse({});
+        }
     });
 });
