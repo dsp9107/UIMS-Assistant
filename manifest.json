@@ -1,6 +1,6 @@
 {
     "name": "UIMS Assistant",
-    "version": "1.0.2",
+    "version": "1.1.1",
     "description": "Assists you keeping up with your attendance goals.",
     "permissions": [
         "contextMenus",
@@ -10,7 +10,7 @@
         "tabs"
     ],
     "externally_connectable": {
-        "matches": ["*://localhost/*", "https://uims-assistant.web.app/*"]
+        "matches": ["https://uims-assistant.web.app/demo"]
     },
     "background": {
         "scripts": ["background.js"],
