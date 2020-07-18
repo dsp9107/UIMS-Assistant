@@ -139,13 +139,16 @@ chrome.runtime.onMessageExternal.addListener(function (
     sender,
     sendResponse
 ) {
-    chrome.storage.sync.get(["attendanceData"], function (result) {
-        if (result.attendanceData) {
-            sendResponse(result.attendanceData);
-        } else {
-            sendResponse({});
-        }
-    });
+    if (request === "attendanceData")
+        chrome.storage.sync.get(["attendanceData"], function (result) {
+            if (result.attendanceData) {
+                sendResponse(result.attendanceData);
+            } else {
+                sendResponse({});
+            }
+        });
+    else if (request === "ping") sendResponse("pong");
+    else sendResponse(null);
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
