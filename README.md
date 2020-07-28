@@ -1,40 +1,26 @@
-# UIMS ![Extension Logo](https://github.com/dsp9107/UIMS-Data-Extractor-Chrome-Extension/blob/master/images/32w/Artboard%201.png)ssistant
+# UIMS ![Extension Logo](https://github.com/dsp9107/UIMS-Assistant-Chrome-Extension/blob/master/images/w32.png)ssistant - Chrome Extension
 
-This Chrome Extension Assists Users Maintain Their Attendance While Having Fun As Well And Developers Extract Data From [UIMS](https://uims.cuchd.in/uims) And Utilize The Same In Any Constructive Way They Can Imagine.
+This Chrome Extension assists users to visualise their attendance data and even extract it to load onto the [UIMS Assistant - Web App](https://uims-assistant.web.app/) for more insightful visualisations.
 
 [Learn more >](https://github.com/dsp9107/UIMS-Data-Extractor-Chrome-Extension/wiki)
 
 ### Installation
 
 -   Head to [Chrome Webstore](https://chrome.google.com/webstore/detail/uims-assistant/fpegbdpjlgmlbjphonekhfomopigahfb)
--   Install in a click
+-   Install with a click
 
-### Usage - For Normal Users
+### Usage
 
--   Log in
--   Head To Attendance Section
--   Click on extension icon ![Extension Logo](/images/24w/Artboard%201.png)
+-   Log in to [UIMS](https://uims.cuchd.in/uims/)
+-   Head to the [Attendance Page](https://uims.cuchd.in/UIMS/frmStudentCourseWiseAttendanceSummary.aspx)
+-   Click on extension icon ![Extension Logo](https://github.com/dsp9107/UIMS-Assistant-Chrome-Extension/blob/master/images/w24.png) by the URL bar
+
+#### For Quick Insights
+
 -   Click on `Insights`
 
-### Usage - For Developers
+#### For Detailed Insights
 
--   Click on `Extract`
--   Attendance Data will be copied to your clipboard in the following format :
-
-```javascript
-[
-    {
-        "Course Code": "XXX-xxx",
-        "Title": "XXXXXXXXXX",
-        "Total Delv.": "xx",
-        "Total Attd.": "xx",
-        "Duty Leave N P": "xx",
-        "Duty Leave Others": "xx",
-        "Medical Leave": "xx",
-        "Eligible Delivered": "xx",
-        "Eligible Attended": "xx",
-        "Eligible Percentage": "xx.xx"
-    },
-    ...
-]
-```
+-   `Right click` anywhere on the attendance page
+-   Click on `Extract Attendance Data`
+-   When prompted, click on `YES`
